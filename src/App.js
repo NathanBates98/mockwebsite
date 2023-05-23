@@ -1,23 +1,24 @@
 import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
+import SideBar from "./components/SideBar";
+
 
 function App() {
+  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const handleViewSidebar = () => {
+    setSideBarOpen(!sidebarOpen);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ 
+      backgroundImage: "url(/placeHolderImage.png)", 
+      height: "100vh",
+      width: "100vw",
+      backgroundRepeat: 'no-repeat',
+      }}>
+      <span>
+       <SideBar isOpen={sidebarOpen} toggleSidebar={handleViewSidebar} />
+     </span>
     </div>
   );
 }
